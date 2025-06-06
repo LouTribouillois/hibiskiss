@@ -1,0 +1,411 @@
+
+  /* ===== HERO SLIDER ===== */
+
+.hero-slider{
+    height: 90vh;
+    margin-top: 57px;
+}
+
+.hero-slider::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 70%, rgba(0, 0, 0, 1) 100%);
+  z-index: 1; 
+  pointer-events: none; 
+}
+
+.hero-slider .slide {
+  width: 200px;
+  height: 300px;
+  position: absolute;
+  top: 50%;
+  transform: translate(0, -50%);
+  border-radius: 20px;
+  box-shadow: 0 30px 50px #000000;
+  background-position: 50% 50%;
+  background-size: cover;
+  display: inline-block;
+  transition: 0.5s;
+}
+
+
+.slide:nth-child(1),
+.slide:nth-child(2){
+  
+  margin-top: 57px;
+  top: 0;
+  left: 0;
+  transform: translate(0, 0);
+  border-radius: 0;
+  width: 100%;
+  height: 90vh;
+  box-shadow: 0 30px 50px #00000000;
+}
+
+
+.slide:nth-child(3){
+  left: 65%;
+
+}
+.slide:nth-child(4){
+  left: calc(65% + 220px);
+}
+.slide:nth-child(5){
+  left: calc(65% + 440px);
+}
+
+/* here n = 0, 1, 2, 3,... */
+.slide:nth-child(n + 6){
+  left: calc(65% + 660px);
+  opacity: 0;
+}
+
+
+
+.slide-content {
+  position: absolute;
+  top: 50%;
+  left: 100px;
+  width: 400px;
+  text-align: left;
+  color: #eee;
+  transform: translate(0, -50%);
+  font-family: system-ui;
+  display: none;
+  background-color: rgba(35, 35, 35, 0.273); 
+  border: 5px solid rgba(35, 35, 35, 0.1);
+  box-shadow: 0 0 30px rgba(35, 35, 35);
+  backdrop-filter: blur(3px);
+  border-radius: 20px;
+  padding: 20px; 
+  }
+.slide:nth-child(2) .slide-content{
+    display: block;
+    animation: slideUpFadeIn 0.5s ease-in-out 0.5s forwards;
+    opacity: 0;
+}
+  .slide:nth-child(3) .slide-content,
+  .slide:nth-child(4) .slide-content,
+  .slide:nth-child(5) .slide-content,
+  .slide:nth-child(n+6) .slide-content
+  {
+    position: absolute;
+    top: 50%;
+    left: 10%;
+    transform: translateY(-50%);
+    max-width: 400px;
+    z-index: 2;
+    opacity: 0;
+  }
+  
+  
+  .slide-title {
+    font-size: 4rem;
+    margin-bottom: 20px;
+    color: var(--text-color);
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    animation: animate 1s ease-in-out 0.3 1 forwards;
+
+  }
+  
+  .slide-description {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    color: var(--secondary-color);
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+  animation: animate 0s ease-in-out 0s 1 forwards;
+  }
+
+
+
+@keyframes animate {
+  from{
+      opacity: 0;
+      transform: translate(0, 100px);
+      filter: blur(33px);
+  }
+
+  to{
+      opacity: 1;
+      transform: translate(0);
+      filter: blur(0);
+  }
+}
+
+@keyframes slideUpFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(100px);
+    filter: blur(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(-100);
+    filter: blur(0);
+  }
+}
+
+.slider-controls {
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+
+}
+
+.slider-dots {
+    display: flex;
+    margin: 0 20px;
+}
+
+.slider-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.5);
+    margin: 0 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.slider-dot.active {
+  background-color: var(--accent-color);
+  transform: scale(1.2);
+}
+
+.prev-slide, .next-slide {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.prev-slide:hover, .next-slide:hover {
+    background-color: var(--accent-color);
+    color: var(--primary-color);
+}
+
+@keyframes rotation {
+  from {
+      transform: translate(-50%, -50%) scale(0);
+      opacity: 0;
+      transform: rotate(0deg);
+  }
+  to {
+      transform: translate(-50%, -50%) scale(1);
+      opacity: 1;
+      transform: rotate(-25deg);
+  }
+}
+
+
+.slide:nth-child(2) .beer-bottle{
+display: block;
+left: 250px;
+height: 100%;
+
+}
+
+.slide:nth-child(3) .beer-bottle,
+.slide:nth-child(4) .beer-bottle,
+.slide:nth-child(5) .beer-bottle,
+.slide:nth-child(n+6) .beer-bottle{
+  width: 70px;
+  display: flex;
+  justify-content: center;
+  margin-left: 15px;
+  animation: animate 0s ease-in-out 0s 1 forwards;
+}
+
+.slide:nth-child(3) .beer-bottle img,
+.slide:nth-child(4) .beer-bottle img,
+.slide:nth-child(5) .beer-bottle img,
+.slide:nth-child(n+6) .beer-bottle img{
+  width: 70px;
+  display: inline-block;
+  margin-left: 15px;
+  animation: animate 0s ease-in-out 0s 1 forwards;
+  left: 50%;
+  top:70%;
+  opacity: 1;
+}
+
+.beer-bottle img{
+  opacity: 0;
+  left: 31%;
+  top: 15%;
+  position: absolute;
+  width: 100px;
+  text-align: left;
+  transform: translate(0, -50%);
+  animation: animate 1s ease-in-out 0.6s 1 forwards;
+  transform: rotate(-25deg);
+  transform-origin: center center;
+}
+
+
+  /* ===== BEER SHOWCASE ===== */
+  .beer-showcase {
+    padding: 100px 0;
+    background-color: var(--bg-color);
+  }
+  
+  .beer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 30px;
+    margin: 50px 0;
+  }
+  
+  .beer-item {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    position: relative;
+  }
+  
+  .beer-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+  }
+  
+  .beer-image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0px;
+  }
+  
+  .beer-image img {
+    object-fit: cover;
+    max-height: 100%;
+    transition: transform 0.3s ease;
+  }
+  
+  .beer-item:hover .beer-image img {
+    transform: scale(1.05);
+  }
+  
+  .beer-info {
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.7);
+  }
+  
+  .beer-info h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: var(--accent-color);
+  }
+  
+  .beer-info p {
+    margin-bottom: 15px;
+    color: var(--secondary-color);
+  }
+  
+  .beer-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .price {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--accent-color);
+  }
+  
+  .add-to-cart {
+    background-color: var(--accent-color);
+    color: var(--primary-color);
+    border: none;
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .add-to-cart:hover {
+    background-color: #e68a00;
+  }
+   /* ===== ABOUT SECTION ===== */
+  .about-section {
+    padding: 100px 0;
+    background-color: var(--primary-color);
+    text-align: center;
+  }
+  
+  .about-text {
+    max-width: 800px;
+    margin: 0 auto 50px;
+    font-size: 1.1rem;
+    line-height: 1.8;
+  }
+  
+  .video-container {
+    position: relative;
+    padding-bottom: 60vh; 
+    height: 0;
+    overflow: hidden;
+    max-width: 800px;
+    margin: 0 auto;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  }
+  
+  .video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  
+  /* ===== NEWSLETTER ===== */
+  .newsletter {
+    padding: 60px 0;
+    background-color: var(--dark-gray);
+    text-align: center;
+  }
+  
+  .newsletter h3 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: var(--accent-color);
+  }
+  
+  .newsletter p {
+    max-width: 600px;
+    margin: 0 auto 30px;
+  }
+  
+  .newsletter-form {
+    display: flex;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+  
+  .newsletter-form input {
+    flex: 1;
+    padding: 15px;
+    border: none;
+    border-radius: 50px 0 0 50px;
+    font-size: 1rem;
+  }
+  
+  .newsletter-form button {
+    border-radius: 0 50px 50px 0;
+  }
+  
