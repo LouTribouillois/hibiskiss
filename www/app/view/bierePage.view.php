@@ -2,6 +2,7 @@
         <div class="beer-hero">
             <div class="beer-image-container">
                 <img src="public/images/bieres/<?= $biere['image_url']?>" alt="Ambrée des Cimes" class="beer-image floating">
+               <!-- affiche l’URL + raccourcie-->
             </div>
             
             <div class="beer-details">
@@ -38,6 +39,7 @@
                     </div>
                 </div>
                 
+                <!-- Bloc pour choisir la quantité /ajouter au panier -->
                 <div class="beer-price-container">
                     <div class="quantity-selector">
                         <button class="quantity-btn minus">-</button>
