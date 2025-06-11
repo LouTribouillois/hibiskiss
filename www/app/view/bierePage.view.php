@@ -1,9 +1,9 @@
-    <main class="container">
+     <main class="container">
         <div class="beer-hero">
             <div class="beer-image-container">
                 <img src="public/images/bieres/<?= $biere['image_url']?>" alt="Ambrée des Cimes" class="beer-image floating">
             </div>
-            
+            <!--hgu-->
             <div class="beer-details">
                 <span class="beer-badge">Nouveau</span>
                 <h1 class="beer-title"><?= $biere['nom']?></h1>
